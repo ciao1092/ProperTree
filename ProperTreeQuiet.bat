@@ -8,8 +8,8 @@ if /i not "%script_name:~-5%" == "quiet" (
     echo script, however its name does not end in "quiet" so the target
     echo script cannot be located.
     echo.
-    echo Press [enter] to quit.
-    pause > nul
+	set /P "msg=Press any key to quit. " < nul & pause > nul
+	pause > nul
     exit /b
 )
 set "target_name=%script_name:~0,-5%.bat"
@@ -18,8 +18,8 @@ if not exist "%~dp0%target_name%" (
     echo Please make sure to run this script from the same directory
     echo as %target_name%.
     echo.
-    echo Press [enter] to quit.
-    pause > nul
+	set /P "msg=Press any key to quit. " < nul & pause > nul
+	pause > nul
     exit /b
 )
 cscript //nologo "%~f0?.wsf" //job:QUIET "%~dp0%target_name%" %*
