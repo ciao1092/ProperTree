@@ -28,8 +28,7 @@ if NOT EXIST "%target%" (
     echo Could not find %target%.
     echo Please make sure to run this script from ProperTree's Scripts Folder.
     echo.
-    echo Press [enter] to quit.
-    pause > nul
+    set /P "msg=Press any key to quit. " < nul & pause > nul
     exit /b
 )
 set "path=%cd%"
@@ -56,8 +55,7 @@ echo.
 "!regpath!" add "HKCR\.plist_auto_file\shell\Open\command" /t REG_SZ /d "%arg%" /f
 "!regpath!" add "HKCU\Software\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts" /v "Applications\%target%_.plist" /t REG_DWORD /d 0 /f
 echo.
-echo Press [enter] to exit...
-pause > nul
+set /P "msg=Press any key to exit . . . " < nul & pause > nul
 exit /b
 
 ----- Begin wsf script --->

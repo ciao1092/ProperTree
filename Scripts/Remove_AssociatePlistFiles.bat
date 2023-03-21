@@ -28,8 +28,7 @@ if NOT EXIST "%target%" (
     echo Could not find %target%.
     echo Please make sure to run this script from ProperTree's Scripts Folder.
     echo.
-    echo Press [enter] to quit.
-    pause > nul
+    set /P "msg=Press any key to quit. " < nul & pause > nul
     exit /b
 )
 set "path=%cd%"
@@ -46,8 +45,7 @@ if "%errorlevel%"=="0" (
     "!regpath!" delete "HKCU\Software\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts" /v "Applications\%target%_.plist" /f 2> nul
 )
 echo.
-echo Press [enter] to exit...
-pause > nul
+set /P "msg=Press any key to quit . . . " < nul & pause > nul
 exit /b
 
 ----- Begin wsf script --->

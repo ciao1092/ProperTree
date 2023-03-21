@@ -40,8 +40,7 @@ if not exist "!thisDir!\!script_name!" (
     echo Please make sure to run this script from the same directory
     echo as !looking_for!.
     echo.
-    echo Press [enter] to quit.
-    pause > nul
+    set /P "msg=Press any key to quit. " < nul & pause > nul
     exit /b
 )
 goto checkpy
@@ -155,8 +154,7 @@ if !tried! lss 1 (
     echo.
     echo Where X.X is the py version you're installing.
     echo.
-    echo Press [enter] to quit.
-    pause > nul
+    set /P "msg=Press any key to quit. " < nul & pause > nul
     exit /b
 )
 goto runscript
@@ -319,8 +317,7 @@ if /i "!pause_on_error!" == "yes" (
         echo.
         echo Script exited with error code: %ERRORLEVEL%
         echo.
-        echo Press [enter] to exit...
-        pause > nul
+        set /P "msg=Press any key to exit . . . " < nul & pause > nul
     )
 )
 goto :EOF
